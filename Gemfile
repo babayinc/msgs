@@ -1,6 +1,4 @@
-source 'https://rubygems.org'
-ruby '2.2.5'
-
-gem 'heroku'
+source 'http://rubygems.org'
 gem 'sinatra'
 gem 'thin'
+gem 'shotgun'

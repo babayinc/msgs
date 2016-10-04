@@ -1,3 +1,4 @@
-require './web'
-#run Sinatra::Application
-run Web
+$stdout.sync = true
+require './app'
+
+run App
