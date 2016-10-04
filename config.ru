@@ -1,2 +1,3 @@
-require './web.rb'
-run Sinatra::Application
+require './web'
+#run Sinatra::Application
+run Web

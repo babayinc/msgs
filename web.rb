@@ -1,5 +1,7 @@
 require 'sinatra'
 
-get '/' do
-  "Hello, world"
+class Web < Sinatra::Base
+  get '/' do
+    "Hello, world"
+  end 
 end
