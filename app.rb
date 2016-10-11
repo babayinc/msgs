@@ -5,8 +5,10 @@ require 'sinatra/activerecord'
 require './environments'
 require 'sinatra/flash'
 require 'sinatra/redirect_with_flash'
+require 'sinatra/reloader'
 
 enable :sessions
+
 class Post < ActiveRecord::Base
   validates :title, presence: true, length: { minimum: 5 }
   validates :body, presence: true
@@ -17,6 +19,14 @@ get '/' do
   @posts = Post.order('created_at DESC')
   @title = 'Welcome.'
   erb :'posts/index'
+end
+
+get '/login' do
+  erb :'auth/login'
+end
+
+get '/signup' do
+  erb :'auth/signup'
 end
 
 get '/posts/create' do
@@ -52,6 +62,14 @@ put '/posts/:id' do
   @post = Post.find(params[:id])
   @post.update(params[:post])
   redirect "/posts/#{@post.id}"
+end
+
+
+
+("a".."z").each do |i|
+  get "/test/#{i}" do
+    erb "#{i}"
+  end
 end
 
 helpers do
