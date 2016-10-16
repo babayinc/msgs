@@ -10,13 +10,6 @@ gem 'sinatra-flash'
 gem 'sinatra-redirect-with-flash'
 gem 'aescrypt'
 
-group :test do
-  # gem 'rspec'
-  # gem 'rack-test'
-  gem 'rspec-sinatra'
-end
-
-
 group :development do
   gem 'sqlite3'
   gem 'tux'
