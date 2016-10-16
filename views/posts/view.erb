@@ -1,4 +1,4 @@
 <h1><%= @post.title %></h1>
-<p><%= @post.body %></p>
+<p><%= AESCrypt.decrypt(@post.body, get_password) %></p>
 </br>
-<a href="/posts/<%= @post.id %>/edit">Edit Post</a>
+<a href="/posts/<%= short_url @post.id %>/edit">Edit Post</a>

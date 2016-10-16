@@ -46,25 +46,30 @@
           <li class="active"><a href="/">Home</a></li>
           <li><a href="/posts/create">New Post</a></li>
         </ul>
+        <% if login? %>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/auth/logout"><%= username %>, logout</a></li>
+            </ul>
+        <% else %>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="/login">Login</a></li>
-          <li><a href="/signup">Sign Up</a></li>
+          <li><a href="/auth/login">Login</a></li>
+          <li><a href="/auth/signup">Sign Up</a></li>
+          <li><%= "#{username}" %></li>
         </ul>
+        <% end %>
       </div><!--/.nav-collapse -->
-
     </div>
   </div>
 
 
   <div class="container">
 
-    <% if flash[:notice] %>
-        <p class="alert alert-success"><%= flash[:notice] %>
-    <% end %>
-    <% if flash[:error] %>
-        <p class="alert alert-warning"><%= flash[:error] %>
-    <% end %>
-    <%= yield %>
+    <div>
+      <%if @error && @error.length > 0 then %>
+          <div class="alert alert-danger"><%=@error%></div>
+      <% end %>
+      <%= yield %>
+    </div>
 
   </div><!-- /.container -->
   </body>

@@ -10,7 +10,12 @@
   <div class="form-group">
     <label for="post_body">Body:</label>
     <br>
-    <textarea id="post_body" name="post[body]" class="form-control" rows="5"><%= @post.body %></textarea>
+    <textarea id="post_body" name="post[body]" class="form-control" rows="10"><%= AESCrypt.decrypt(@post.body, get_password) %></textarea>
+  </div>
+  <div class="form-group">
+    <label for="post_lifetime">Lifetime:</label>
+    <br>
+    <input id="post_lifetime" name="post[lifetime]" class="form-control" type="text" value="<%= @post.lifetime %>"/>
   </div>
   <button type="submit" class="btn btn-success">Submit</button>
 </form>
